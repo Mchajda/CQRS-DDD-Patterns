@@ -1,8 +1,9 @@
 ﻿using CQRS_DDD_Patterns.Models;
+using MediatR;
 
 namespace CQRS_DDD_Patterns.Commands
 {
-    public class CreateOrderCommand
+    public class CreateOrderCommand : IRequest<string>
     {
         public string CustomerId { get; }
         public ShippingInfo ShippingInfo { get; }

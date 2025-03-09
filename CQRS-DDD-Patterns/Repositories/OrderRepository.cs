@@ -1,4 +1,5 @@
 ﻿using CQRS_DDD_Patterns.Models;
+using System.Collections.Generic;
 
 namespace CQRS_DDD_Patterns.Repositories
 {
@@ -8,9 +9,9 @@ namespace CQRS_DDD_Patterns.Repositories
         Task<IEnumerable<Order>> GetAllAsync();
         Task SaveAsync(Order order);
         Task UpdateAsync(Order order);
-        Task DeleteAsync(int id);
+        Task DeleteAsync(string id);
     }
-    public class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private readonly Dictionary<string, Order> _orders = new Dictionary<string, Order>();
 
