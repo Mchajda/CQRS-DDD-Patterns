@@ -2,15 +2,20 @@
 {
     public class Order
     {
-        public Guid OrderId { get; private set; }
-        public Guid CustomerId { get; private set; }
-        public List<OrderItem> Items { get; private set; } = new();
-        public ShippingInfo ShippingInfo { get; private set; }
-        public OrderStatus Status { get; private set; }
+        public string OrderId { get; set; }
+        public string CustomerId { get; set; }
+        public List<OrderItem> Items { get; set; } = new();
+        public ShippingInfo ShippingInfo { get; set; }
+        public OrderStatus Status { get; set; }
 
-        public Order(Guid customerId, ShippingInfo shippingInfo)
+        public Order ()
         {
-            OrderId = Guid.NewGuid();
+
+        }
+
+        public Order(string customerId, ShippingInfo shippingInfo)
+        {
+            OrderId = Guid.NewGuid().ToString();
             CustomerId = customerId;
             ShippingInfo = shippingInfo;
             Status = OrderStatus.Pending;

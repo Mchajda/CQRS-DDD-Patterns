@@ -2,8 +2,13 @@
 {
     public class OrderItem
     {
-        public Product Product { get; }
-        public int Quantity { get; }
+        public Product Product { get; set; }
+        public int Quantity { get; set; }
+
+        public OrderItem()
+        {
+
+        }
 
         public OrderItem(Product product, int quantity)
         {

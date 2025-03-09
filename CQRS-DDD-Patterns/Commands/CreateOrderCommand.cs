@@ -4,11 +4,11 @@ namespace CQRS_DDD_Patterns.Commands
 {
     public class CreateOrderCommand
     {
-        public Guid CustomerId { get; }
+        public string CustomerId { get; }
         public ShippingInfo ShippingInfo { get; }
-        public List<OrderItemDto> Items { get; }
+        public List<OrderItem> Items { get; }
 
-        public CreateOrderCommand(Guid customerId, ShippingInfo shippingInfo, List<OrderItemDto> items)
+        public CreateOrderCommand(string customerId, ShippingInfo shippingInfo, List<OrderItem> items)
         {
             CustomerId = customerId;
             ShippingInfo = shippingInfo;
