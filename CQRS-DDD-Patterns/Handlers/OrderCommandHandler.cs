@@ -5,16 +5,23 @@ using MediatR;
 
 namespace CQRS_DDD_Patterns.Handlers
 {
-    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, string>
+    public class OrderCommandHandler : 
+        IRequestHandler<CreateOrderCommand, string>,
+        IRequestHandler<UpdateOrderCommand, string>
     {
         private readonly IOrderRepository _orderRepository;
 
-        public CreateOrderCommandHandler(IOrderRepository orderRepository)
+        public OrderCommandHandler(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
         }
 
-        async Task<string> IRequestHandler<CreateOrderCommand, string>.Handle(CreateOrderCommand command, CancellationToken cancellationToken)
+        public async Task<string> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<string> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
         {
             var order = new Order(command.CustomerId, command.ShippingInfo);
             foreach (var item in command.Items)

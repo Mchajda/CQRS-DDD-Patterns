@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssemblies(typeof(CreateOrderCommandHandler).Assembly)
+    cfg.RegisterServicesFromAssemblies(typeof(OrderCommandHandler).Assembly)
 );
 builder.Services.AddScoped<IOrderQueryService, OrderQueryService>();
 builder.Services.AddSingleton<IOrderRepository, OrderRepository>();

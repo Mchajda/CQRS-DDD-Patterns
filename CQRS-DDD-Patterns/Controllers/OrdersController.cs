@@ -1,6 +1,5 @@
 ﻿using CQRS_DDD_Patterns.Commands;
 using CQRS_DDD_Patterns.QueryServices;
-using CQRS_DDD_Patterns.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
